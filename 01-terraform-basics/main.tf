@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "my_s3_bucket" {
 }
 
 resource "aws_iam_user" "my_iam_user" {
-    name = "aws_iam_user.hari"
+    name = "aws_iam_user.hari_update"
 }
 
 output "my_s3_bucket_versioning" {
