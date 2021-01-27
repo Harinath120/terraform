@@ -7,6 +7,6 @@ provider "aws" {
 }
 
 resource "aws_iam_user" "my_iam_users" {
-    count = 2
-    name = "${var.iam_user_name_prefix}_${count.index}"
+    count = length(var.names)
+    name = var.names[count.index]
 }
