@@ -1,8 +1,12 @@
+variable "iam_user_name_prefix" {
+    default = "my_iam_awsdevops"
+}
+
 provider "aws" {
     region = "us-east-1"
 }
 
 resource "aws_iam_user" "my_iam_users" {
     count = 2
-    name = "my_iam_awsdevops_${count.index}"
+    name = "${var.iam_user_name_prefix}_${count.index}"
 }
