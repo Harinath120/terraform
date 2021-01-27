@@ -1,4 +1,5 @@
 variable "iam_user_name_prefix" {
+    type = string #any, number, bool, list, map, object, tuple
     default = "my_iam_awsdevops"
 }
 
