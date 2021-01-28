@@ -1,3 +1,8 @@
+variable "aws_key_pair" {
+    default = "~/aws/aws_keys/devops-hari.pem"
+}
+
+
 provider "aws" {
     region = "us-east-1"
 }
@@ -43,4 +48,22 @@ resource "aws_instance" "http_server" {
     instance_type = "t2.micro"
     vpc_security_group_ids = [aws_security_group.http_server_sg.id]
     subnet_id = "subnet-b0c67cef"
+
+    connection {
+        type = "ssh"
+        host = self.public_ip
+        user = "ec2-user"
+        private_key = file (var.aws_key_pair)
+
+    }
+
+    provisioner "remote_exec" {
+        inline = [
+            "sudo yum install httpd -y",//install httpd
+            "sudo service httpd start",
+            "echo Welcome to web applications -virtual server is at ${self.public_dns} | sudo tee /var/www/index.html"
+        ]
+    }
 }
+
+
