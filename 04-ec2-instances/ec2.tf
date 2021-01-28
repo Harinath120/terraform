@@ -57,7 +57,7 @@ resource "aws_instance" "http_server" {
 
     }
 
-    provisioner "remote_exec" {
+    provisioner "remote-exec" {
         inline = [
             "sudo yum install httpd -y",//install httpd
             "sudo service httpd start",
