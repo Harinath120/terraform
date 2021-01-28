@@ -1,0 +1,4 @@
+US East (N Virginia)us-east-1
+Amazon Machine Image = ami-047a51fa27710816e
+Instance Type = t2.micro
+VPC - vpc-c6478dbb
