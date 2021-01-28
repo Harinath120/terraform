@@ -11,6 +11,10 @@ resource "aws_default_vpc" "default" {
 
 }
 
+data "aws_subnet_ids" "default_subnets" {
+    vpc_id = aws_default_vpc.default.id 
+}
+
 //HTTP server -> SG 
 // SG -> 80 TCP, 22 TCP,CIDR Block ["0.0.0.0/0"]
 
