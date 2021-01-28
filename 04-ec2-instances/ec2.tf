@@ -7,6 +7,10 @@ provider "aws" {
     region = "us-east-1"
 }
 
+resource "aws_default_vpc" {
+    
+}
+
 //HTTP server -> SG 
 // SG -> 80 TCP, 22 TCP,CIDR Block ["0.0.0.0/0"]
 
